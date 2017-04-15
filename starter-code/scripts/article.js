@@ -57,15 +57,16 @@ Article.fetchAll = function() {
   } else {
     // TODO: When we don't already have the rawData,
     //see class demo 06
-    $.ajax({
-      url: '/data/hackerIpsum.json'
-    }).done(function(data){
-      localStorage.setItem('data', JSON.stringify(data));
-      Article.loadAll(JSON.parse(data));
-      console.log(Article.all);
-      articleView.initIndexPage();
-      console.log('heeeeyyyyy');
-    })
+    $(() => { //this needed to be wrapped in jQuery object to work. shout-out to Devon! now it works
+      $.ajax({
+        url: '/data/hackerIpsum.json'
+      }).done(function(data){
+        localStorage.setItem('rawData', JSON.stringify(data));
+        Article.loadAll(JSON.parse(data));
+        articleView.initIndexPage();
+        console.log('heeeeyyyyy');
+      });
+    });
   }
 };
 // we need to retrieve the JSON file from the server with AJAX (which jQuery method is best for this?),
