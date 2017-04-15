@@ -106,7 +106,7 @@ articleView.create = function() {
 };
 
 
-articleView.initIndexPage = function() {
+articleView.initIndexPage = function() { //this is the thing we may need
   Article.all.forEach(function(article) {
     $('#articles').append(article.toHtml())
   });
