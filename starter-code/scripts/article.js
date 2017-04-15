@@ -54,12 +54,13 @@ Article.fetchAll = function() {
     // USE json.parse $('#article-export-jon').val(JSON.stringify(newArticle)); this is from class lecture
     //TODO: What method do we call to render the index page?
 
+    articleView.initIndexPage();
+
   } else {
     // TODO: When we don't already have the rawData,
-    $(() => {
-  $.ajax({
-    url: '/data/hackerIpsum.json'
-  }) //see class demo 06
+    $.ajax({
+      url: '/data/hackerIpsum.json'
+    }) //see class demo 06
 
 
     // we need to retrieve the JSON file from the server with AJAX (which jQuery method is best for this?),
